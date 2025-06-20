@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joke & Image Generator</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("https://www.creativefabrica.com/wp-content/uploads/2022/09/14/cute-cool-buddha-cartoon-collection-Graphics-38454173-1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 10px black;
+      padding: 20px;
+    }
+    h1{
+        color: red;
+    }
+    #joke {
+      font-size: 24px;
+      margin: 20px;
+      max-width: 600px;
+
+    }
+    #image-container {
+      margin: 15px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      display: none; /* hidden by default */
+    }
+    #image-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px #388e3c;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button:active {
+      box-shadow: 0 2px #388e3c;
+      transform: translateY(2px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😂 Random Joke & Image Generator</h1>
+  <p id="joke">Click the button to get a joke!</p>
+
+  <div id="image-container">
+    <img id="joke-image" src="" alt="Funny Image" />
+  </div>
+
+  <button onclick="generateJoke()">Tell Me a Joke</button>
+
+  <script>
+    const jokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "Why don’t skeletons fight each other? They don’t have the guts.",
+      "I used to play piano by ear, but now I use my hands.",
+      "Parallel lines have so much in common. It’s a shame they’ll never meet."
+    ];
+
+    const images = [
+      "https://w0.peakpx.com/wallpaper/865/15/HD-wallpaper-brahmi-actor-brahmanandam-comedy-telugu-tollywood.jpg",
+      "https://media.tenor.com/llJZsf5GaTcAAAAM/shock-funnys.gif",
+      "https://www.andhrafriends.com/uploads/gallery/category_1/sml_gallery_49204_1_187298.gif",
+      "https://i.pinimg.com/originals/ad/75/ef/ad75efdfd9c887f47fd8e3cd3d708e6d.jpg",
+      "https://www.teluguone.com/tone_cms/uploads/Amazing%20Pictures/Brahmanandam%20Laughing%20Photos/Brahmanandam%20Laughing%20Photos6.jpg"
+    ];
+
+    function generateJoke() {
+      const randomJokeIndex = Math.floor(Math.random() * jokes.length);
+      const randomImageIndex = Math.floor(Math.random() * images.length);
+
+      document.getElementById("joke").textContent = jokes[randomJokeIndex]+'😂🤣';
+
+      const imgEl = document.getElementById("joke-image");
+      imgEl.src = images[randomImageIndex];
+      imgEl.alt = "Funny Image";
+
+      // Show the image container after joke is generated
+      document.getElementById("image-container").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
